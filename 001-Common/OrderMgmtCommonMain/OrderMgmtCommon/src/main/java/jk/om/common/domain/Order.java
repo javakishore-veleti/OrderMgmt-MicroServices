@@ -4,39 +4,42 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Order {
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Transient;
 
-	private Long id;
-	private Customer customer;
+@MappedSuperclass
+public class Order extends BaseDomain {
+
+	private static final long serialVersionUID = 1L;
+
+	@Column(name = "customer_id")
+	private Long customerId;
+
+	@Column(name = "created_at")
 	private Date createdAt;
+
+	@Column(name = "status")
 	private String status;
 
+	@Transient
 	private List<OrderLineItem> items = new ArrayList<>();
 
 	public Order() {
 	}
 
-	public Order(Long id, Customer customer, List<OrderLineItem> items) {
+	public Order(Long id, Long customerId, List<OrderLineItem> items) {
 		super();
-		this.id = id;
-		this.customer = customer;
+		this.customerId = customerId;
 		this.items = items;
 	}
 
-	public Long getId() {
-		return id;
+	public Long getCustomerId() {
+		return customerId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
 	}
 
 	public List<OrderLineItem> getItems() {
@@ -61,12 +64,6 @@ public class Order {
 
 	public void setStatus(String status) {
 		this.status = status;
-	}
-
-	@Override
-	public String toString() {
-		return "Order [id=" + id + ", customer=" + customer + ", createdAt=" + createdAt + ", status=" + status
-				+ ", items=" + items + "]";
 	}
 
 }

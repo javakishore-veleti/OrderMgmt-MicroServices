@@ -1,8 +1,11 @@
 package jk.om.common.domain;
 
-public class Customer {
+import javax.persistence.MappedSuperclass;
 
-	private Long id;
+@MappedSuperclass
+public class CustomerProfile extends BaseDomain {
+
+	private static final long serialVersionUID = 1L;
 
 	private String name;
 	private String firstName;
@@ -11,25 +14,18 @@ public class Customer {
 	private String customerType;
 	private Address address;
 
-	public Customer() {
+	public CustomerProfile() {
 	}
 
-	public Customer(Long id, String name, String firstName, String lastName, String customerType, Address address) {
+	public CustomerProfile(Long id, String name, String firstName, String lastName, String customerType, Address address) {
 		super();
-		this.id = id;
+		super.setId(id);
+
 		this.name = name;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.customerType = customerType;
 		this.address = address;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getName() {
@@ -74,8 +70,8 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", name=" + name + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", customerType=" + customerType + ", address=" + address + "]";
+		return "Customer [name=" + name + ", firstName=" + firstName + ", lastName=" + lastName + ", customerType="
+				+ customerType + ", address=" + address + ", toString()=" + super.toString() + "]";
 	}
 
 }

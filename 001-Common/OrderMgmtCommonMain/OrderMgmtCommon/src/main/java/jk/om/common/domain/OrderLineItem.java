@@ -3,20 +3,36 @@ package jk.om.common.domain;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class OrderLineItem {
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
 
-	private Long id;
+@MappedSuperclass
+public class OrderLineItem extends BaseDomainHierarchy {
 
-	private String status;
-	private Date createdAt;
+	private static final long serialVersionUID = 1L;
 
+	@Column(name = "product_id")
 	private Long productId;
+
+	@Column(name = "quantity")
 	private Integer quantity;
+
+	@Column(name = "unit_price")
 	private BigDecimal unitPrice;
+
+	@Column(name = "total_price")
 	private BigDecimal totalPrice;
+
+	@Column(name = "discount")
 	private BigDecimal discount;
+
+	@Column(name = "unit_tax")
 	private BigDecimal unitTax;
+
+	@Column(name = "total_tax")
 	private BigDecimal totalTax;
+
+	@Column(name = "total_cost")
 	private BigDecimal totalCost;
 
 	public OrderLineItem() {
@@ -25,9 +41,10 @@ public class OrderLineItem {
 	public OrderLineItem(Long id, String status, Date createdAt, Long productId, Integer quantity, BigDecimal unitPrice,
 			BigDecimal totalPrice, BigDecimal discount, BigDecimal unitTax, BigDecimal totalTax, BigDecimal totalCost) {
 		super();
-		this.id = id;
-		this.status = status;
-		this.createdAt = createdAt;
+		super.setId(id);
+		super.setStatus(status);
+		super.setCreatedAt(createdAt);
+
 		this.productId = productId;
 		this.quantity = quantity;
 		this.unitPrice = unitPrice;
@@ -36,14 +53,6 @@ public class OrderLineItem {
 		this.unitTax = unitTax;
 		this.totalTax = totalTax;
 		this.totalCost = totalCost;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public Long getProductId() {
@@ -112,10 +121,9 @@ public class OrderLineItem {
 
 	@Override
 	public String toString() {
-		return "OrderLineItem [id=" + id + ", status=" + status + ", createdAt=" + createdAt + ", productId="
-				+ productId + ", quantity=" + quantity + ", unitPrice=" + unitPrice + ", totalPrice=" + totalPrice
-				+ ", discount=" + discount + ", unitTax=" + unitTax + ", totalTax=" + totalTax + ", totalCost="
-				+ totalCost + "]";
+		return "OrderLineItem [productId=" + productId + ", quantity=" + quantity + ", unitPrice=" + unitPrice
+				+ ", totalPrice=" + totalPrice + ", discount=" + discount + ", unitTax=" + unitTax + ", totalTax="
+				+ totalTax + ", totalCost=" + totalCost + ", toString()=" + super.toString() + "]";
 	}
 
 }

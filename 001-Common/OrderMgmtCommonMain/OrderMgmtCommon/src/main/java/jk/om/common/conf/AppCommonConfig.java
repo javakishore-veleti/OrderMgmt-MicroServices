@@ -7,4 +7,9 @@ import org.springframework.context.annotation.Import;
 @Import(SpringFoxConfig.class)
 public class AppCommonConfig {
 
+//	@Bean(initMethod = "init")
+//	public InitMethodExampleBean exBean() {
+//		return new InitMethodExampleBean();
+//	}
+
 }
