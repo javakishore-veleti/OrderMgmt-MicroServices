@@ -2,10 +2,15 @@ package jk.om.common.domain;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public class BaseDomainHierarchy extends BaseDomain {
 
 	private static final long serialVersionUID = 1L;
 
+	@Column(name = "parent_id")
 	private Long parentId;
 
 	public BaseDomainHierarchy() {

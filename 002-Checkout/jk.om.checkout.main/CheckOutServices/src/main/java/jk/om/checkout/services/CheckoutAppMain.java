@@ -11,7 +11,7 @@ import jk.om.common.conf.AppCommonConfig;
 @SpringBootApplication
 @EnableAutoConfiguration
 @Import(AppCommonConfig.class)
-@ComponentScan(basePackages = { "jk.om.adapter.db", "jk.om.common.conf", "jk.om.checkout.services", })
+@ComponentScan(basePackages = { "jk.om.common", "jk.om.adapter", "jk.om.checkout.services", })
 public class CheckoutAppMain {
 	public static void main(String[] args) {
 
