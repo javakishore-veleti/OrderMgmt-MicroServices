@@ -13,4 +13,9 @@ public class OrderRequestLineItemImpl extends OrderRequestLineItem implements Se
 
 	private static final long serialVersionUID = 1L;
 
+	@Override
+	public String toString() {
+		return "OrderRequestLineItemImpl [toString()=" + super.toString() + "]";
+	}
+
 }
