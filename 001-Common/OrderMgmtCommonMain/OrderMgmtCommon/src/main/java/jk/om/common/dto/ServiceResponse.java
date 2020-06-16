@@ -6,29 +6,29 @@ import java.util.Map;
 
 import jk.om.common.constants.ApiConstants;
 
-public class ApiResponse implements Serializable {
+public class ServiceResponse implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private String status = ApiConstants.SUCCESS;
 	private Map<String, Object> response = new HashMap<>();
 
-	public ApiResponse() {
+	public ServiceResponse() {
 		super();
 	}
 
-	public ApiResponse(String status, Map<String, Object> response) {
+	public ServiceResponse(String status, Map<String, Object> response) {
 		super();
 		this.status = status;
 		this.response = response;
 	}
 
-	public ApiResponse(Map<String, Object> response) {
+	public ServiceResponse(Map<String, Object> response) {
 		super();
 		this.response = response;
 	}
 
-	public ApiResponse addResponse(String key, Object value) {
+	public ServiceResponse addResponse(String key, Object value) {
 		this.response.put(key, value);
 		return this;
 	}
@@ -51,7 +51,7 @@ public class ApiResponse implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ApiResult [status=" + status + ", response=" + response + "]";
+		return "ServiceUpdateInfo [status=" + status + ", response=" + response + "]";
 	}
 
 }

@@ -1,32 +1,31 @@
 package jk.om.common.dto;
 
-import jk.om.common.domain.Order;
+import jk.om.common.domain.OrderRequest;
 
 public class OrderRequetInfo {
 
-	private Order order;
+	private OrderRequest orderRequest;
 
 	public OrderRequetInfo() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public OrderRequetInfo(Order order) {
+	public OrderRequetInfo(OrderRequest orderRequest) {
 		super();
-		this.order = order;
+		this.orderRequest = orderRequest;
 	}
 
-	public Order getOrder() {
-		return order;
+	public OrderRequest getOrderRequest() {
+		return orderRequest;
 	}
 
-	public void setOrder(Order order) {
-		this.order = order;
+	public void setOrderRequest(OrderRequest orderRequest) {
+		this.orderRequest = orderRequest;
 	}
 
 	@Override
 	public String toString() {
-		return "OrderRequetInfo [order=" + order + "]";
+		return "OrderRequetInfo [orderRequest=" + orderRequest + "]";
 	}
 
 }
